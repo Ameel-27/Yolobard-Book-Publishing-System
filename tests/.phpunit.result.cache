@@ -1,0 +1,1 @@
+{"version":1,"defects":{"DatabaseTest::testDatabaseConnection":4},"times":{"CheckoutTest::testCheckoutSuccess":0.003,"DatabaseTest::testDatabaseConnection":4.076,"AuthTest::testInvalidLogin":0.004,"CheckoutTest::testCheckoutFailure":0}}

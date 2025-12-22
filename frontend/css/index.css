@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #f0f0f0;
+  --color-secondary: #31304d;
+  --color-success: #4caf50;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  background: var(--color-primary);
+  color: var(--color-primary);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+button,
+a.button {
+  background-color: transparent;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 100ms ease;
+}
+
+button:hover,
+a.button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+button.success,
+a.button.success {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+button.success:hover,
+a.button.success:hover {
+  background-color: var(--color-success);
+  color: var(--color-primary);
+}
+
+button.danger,
+a.button.danger {
+  border-color: #E61313;
+  color: #E61313;
+}
+
+button.danger:hover,
+a.button.danger:hover {
+  background-color: #E61313;
+  color: var(--color-primary);
+}
+
+input,
+select,
+textarea {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  color: var(--color-secondary);
+  font: inherit;
+  padding: .5rem 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-secondary);
+}
+
+nav {
+  align-items: stretch;
+  background: var(--color-secondary);
+  display: flex;
+  inset-inline: 0;
+  justify-content:space-between;
+  position: fixed;
+  z-index: 2;
+}
+
+nav a {
+  color: var(--color-primary);
+  display: block;
+  text-decoration: none;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 3.5em;
+} 
+
+.nav-brand > a,
+.nav-item {
+  padding: 1rem 2rem;
+}
+
+#nav-button {
+  cursor: pointer;
+  display: none;
+  font-size: 3rem;
+  padding-inline: 1.5rem;
+}
+
+.nav-items {
+  align-items: stretch;
+  display: flex;
+  list-style-type: none;
+  margin-right: 3.5em;
+}
+
+.nav-item {
+  align-items: center;
+  display: flex;
+}
+
+#nav-button.active,
+#nav-button:hover,
+.nav-item.active,
+.nav-item:hover {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.service {
+  display: flex;
+  height: 100%;
+  padding: 10rem 7.5rem;
+  position: relative;
+  scroll-snap-align: start;
+  width: 100%;
+}
+
+.service::before,
+.service::after {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.service::before {
+  background-repeat: no-repeat;
+  background-size:cover;
+  z-index: -1;
+}
+
+#sign-up, #about-us {
+  color: var(--color-secondary);
+}
+
+#sign-up::after, #about-us::after {
+  background: linear-gradient(to right bottom, var(--color-primary), rgba(240, 240, 240, .75) 35%, transparent);
+}
+
+#sign-up::before {
+  background-image: url("../assets/books-index.jpg");
+}
+
+#about-us::before {
+  background-image: url("../assets/about-us-index.webp");
+}
+
+#sign-up .service-content, #about-us .service-content {
+  margin-right: auto;
+}
+
+#sign-up .service-button, #about-us .service-button {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+#sign-up .service-button:hover, #about-us .service-button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+#book-store::after, #welfare-trust::after {
+  background: linear-gradient(to left bottom, var(--color-secondary), rgba(49, 48, 77, .75) 50%, transparent);
+}
+
+#book-store::before {
+  background-image: url("../assets/shopping-index.jpg");
+}
+
+#welfare-trust::before {
+  background-image: url("../assets/welfare-trust.jpg");
+}
+
+#book-store .service-content, #welfare-trust .service-content {
+  margin-left: auto;
+  text-align: right;
+}
+
+#book-store .service-button, #welfare-trust .service-button {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+#book-store .service-button:hover, #welfare-trust .service-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.service-content {
+  margin-bottom: auto;
+  width: 50%;
+  z-index: 1;
+}
+
+.service-title {
+  font-size: 3rem;
+}
+
+.service-description {
+  font-size: 1.5rem;
+  text-wrap: balance;
+}
+
+.service-button {
+  border-width: .25rem;
+  border-style: solid;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  transition: all 100ms ease;
+}
+
+main {
+  color: var(--color-secondary);
+  padding: 5rem 10rem;
+}
+
+@media screen and (max-width: 1280px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    white-space: nowrap;
+  }
+
+  #nav-button {
+    display: block;
+  }
+
+  .nav-items {
+    background-color: var(--color-secondary);
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  .nav-items.active {
+    display: block;
+  }
+
+  .service-content {
+    width: 100%;
+  }
+}

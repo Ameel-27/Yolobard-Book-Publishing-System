@@ -1,0 +1,340 @@
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem; /* Add vertical padding */
+    background-color: var(--color-primary);
+    min-height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Ensure padding is included in height */
+  }
+
+  .auth-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+  }
+  
+  .auth-header {
+    padding: 3.5rem 2rem 1rem; /* Reduced top padding from 2rem to 1.5rem */
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .auth-header h2 {
+    color: var(--color-secondary);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-header p {
+    color: #666;
+    font-size: 0.95rem;
+  }
+  
+  .auth-form {
+    padding: 2rem;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+  }
+  
+  .form-group input:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 48, 77, 0.1);
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #777;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.25rem;
+  }
+  
+  .form-group input:focus + label,
+  .form-group input:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .form-options label {
+    display: flex;
+    align-items: center;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  .form-options input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .forgot-password {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  .auth-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    color: #666;
+    font-size: 0.95rem;
+  }
+  
+  .auth-footer a {
+    color: var(--color-secondary);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .auth-card {
+      border-radius: 0;
+    }
+    
+    .auth-header, .auth-form {
+      padding: 1.5rem;
+    }
+  }
+  .role-select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .select-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #777;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.25rem;
+    z-index: 2;
+  }
+  .role-select:focus + .select-label,
+.role-select:not([value=""]):valid + .select-label {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}
+  
+  .form-group select:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 48, 77, 0.1);
+  }
+  
+  /* Dropdown arrow styling */
+  .form-group {
+    position: relative;
+  }
+  
+  .form-group::after {
+    content: "";
+    font-size: 0.8rem;
+    color: #777;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Different colors for different roles */
+  .auth-card[data-role="author"] {
+    border-top: 4px solid #4CAF50;
+  }
+  
+  .auth-card[data-role="editor"] {
+    border-top: 4px solid #2196F3;
+  }
+  
+  .auth-card[data-role="admin"] {
+    border-top: 4px solid #f44336;
+  }
+  
+  .auth-card[data-role="customer"] {
+    border-top: 4px solid #FFC107;
+  }
+  /* Name fields row */
+.name-fields {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  /* Terms checkbox styling */
+  .terms-checkbox {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .terms-checkbox input {
+    margin-right: 0.5rem;
+  }
+  
+  .terms-checkbox a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+  
+  .terms-checkbox a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 480px) {
+    .name-fields {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .half-width {
+      width: 100%;
+    }
+  }
+
+
+  /* Author Submission Specific Styles */
+.file-upload {
+  margin-bottom: 1.5rem;
+}
+
+.file-upload label {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.file-upload input[type="file"] {
+  width: 100%;
+  padding: 0.7rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+}
+
+.file-label {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 2rem;
+}
+
+.file-hint {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+textarea:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(49, 48, 77, 0.1);
+}
+
+textarea + label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #777;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background: white;
+  padding: 0 0.25rem;
+}
+
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}
+
+.half-width {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .half-width {
+    width: 100%;
+  }
+}
