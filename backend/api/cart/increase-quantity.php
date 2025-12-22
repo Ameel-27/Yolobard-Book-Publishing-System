@@ -11,7 +11,6 @@ $cartId = (int) $_SESSION['user']['CartID'];
 
 $db = Database::getInstance()->getConnection();
 
-// Use prepared statements (MySQLi)
 $sql = "UPDATE Cart_Items 
         SET Quantity = Quantity + 1 
         WHERE CartID = ? AND BookID = ?";

@@ -15,7 +15,6 @@ if ($userId <= 0 || !in_array($action, ['assign', 'remove'])) {
     die("Invalid input");
 }
 
-// Get MySQLi connection
 $db = Database::getInstance()->getConnection();
 
 $procedure = '';
@@ -25,7 +24,6 @@ if ($action === 'assign') {
     $procedure = 'sp_RemoveEditorRole';
 }
 
-// Prepare and execute stored procedure
 $stmt = $db->prepare("CALL $procedure(?)");
 if (!$stmt) {
     http_response_code(500);

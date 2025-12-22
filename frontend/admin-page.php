@@ -16,9 +16,7 @@ $userSearch = $_GET['user_search'] ?? '';
 include('../backend/api/admin/retrieveStatistics.php');
 
 
-// ---------------------------------------------
 // PAGINATION FOR ROLE MANAGEMENT
-// ---------------------------------------------
 $page = (int)($_GET['page'] ?? 1);
 $limit = 3;
 $offset = ($page - 1) * $limit;
@@ -30,9 +28,7 @@ $totalUsers = $countResult->fetch_assoc()['Total'];
 $totalPages = ceil($totalUsers / $limit);
 
 
-// ---------------------------------------------
 // FETCH USERS
-// ---------------------------------------------
 $userSql = "
     SELECT 
         UserID,
@@ -77,10 +73,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 
-
-// ---------------------------------------------
 // SALES ANALYTICS
-// ---------------------------------------------
 $startOfWeek = date("Y-m-d 00:00:00", strtotime("monday this week"));
 $endOfWeek   = date("Y-m-d 23:59:59", strtotime("sunday this week"));
 
@@ -111,11 +104,7 @@ while ($row = $result->fetch_assoc()) {
     $topSellingBooksThisWeek[] = $row;
 }
 
-
-
-// ---------------------------------------------
 // WEEKLY SALES WITH ROLLUP
-// ---------------------------------------------
 $weeklyBreakdownSql = "
     SELECT 
         DATE(SaleDate) AS SaleDay,
@@ -136,10 +125,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 
-
-// ---------------------------------------------
-// AUTHOR SALES — MySQL equivalent of SQL Server CUBE
-// ---------------------------------------------
+// AUTHOR SALES 
 $authorSalesSql = "
     SELECT 
         CONCAT(u.FirstName, ' ', u.LastName) AS AuthorName,
@@ -164,9 +150,8 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-// ---------------------------------------------
+
 // BOOK MANAGEMENT
-// ---------------------------------------------
 include('../backend/api/admin/book-management.php');
 
 ?>

@@ -16,14 +16,12 @@ class UserFactory {
     }
 }
 
-// Base User class (shared logic)
 abstract class User {
     protected $userId;
     public function __construct($userId) { $this->userId = $userId; }
     abstract public function getNavItems();
 }
 
-// Role-Specific Classes
 class Author extends User {
     public function getNavItems() {
         return [

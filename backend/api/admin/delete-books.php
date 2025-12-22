@@ -11,7 +11,6 @@ if ($bookId <= 0) die("Invalid book ID");
 
 $db = Database::getInstance()->getConnection();
 
-// Call MySQL stored procedure
 $stmt = $db->prepare("CALL sp_DeleteBook(?)");
 $stmt->bind_param("i", $bookId);
 

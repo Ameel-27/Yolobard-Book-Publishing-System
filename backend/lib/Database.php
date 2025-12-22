@@ -5,21 +5,18 @@ class Database {
     private $conn;
 
     private function __construct() {
-        // UPDATE THESE VALUES FOR YOUR MYSQL SERVER
-        $host = "localhost";      // or 127.0.0.1
+        $host = "localhost";      
         $user = "root";
         $pass = "";
-        $db   = "yolobard";       // same database name
+        $db   = "yolobard";       
 
-        // Create MySQLi connection
         $this->conn = new mysqli($host, $user, $pass, $db);
 
-        // Check connection
+
         if ($this->conn->connect_error) {
             die("MySQL connection failed: " . $this->conn->connect_error);
         }
 
-        // Ensure UTF-8 encoding (best practice)
         $this->conn->set_charset("utf8mb4");
     }
 

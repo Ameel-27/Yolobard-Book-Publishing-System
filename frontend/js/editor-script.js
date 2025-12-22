@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    applySort(); // Apply sorting after filtering
+    applySort(); 
   }
 
   function applySort() {
@@ -54,11 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Append sorted elements
     visible.forEach(card => wrapper.appendChild(card));
   }
 
-  // Event Listeners
   searchBtn.addEventListener('click', applyFilters);
   resetBtn.addEventListener('click', () => {
     titleInput.value = '';

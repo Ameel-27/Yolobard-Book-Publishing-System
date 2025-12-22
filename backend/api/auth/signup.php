@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $db = Database::getInstance()->getConnection();
 
-    // Check if email already exists
     $stmt = $db->prepare('SELECT UserID FROM Users WHERE Email = ?');
     if (!$stmt) die("Prepare failed: " . $db->error);
 
@@ -28,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $stmt->close();
 
-    // Insert new user
     $stmt = $db->prepare('INSERT INTO Users (Email, Password, FirstName, LastName, Role, CreatedAt)
                           VALUES (?, ?, ?, ?, ?, NOW())');
     if (!$stmt) die("Prepare failed: " . $db->error);

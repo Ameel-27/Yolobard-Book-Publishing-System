@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $db = Database::getInstance()->getConnection();
     
-    // Query to fetch user by email
     $stmt = $db->prepare("SELECT UserID, FirstName, Email, Password, Role FROM Users WHERE Email = ?");
     if (!$stmt) die("Prepare failed: " . $db->error);
 
@@ -29,13 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // UPDATE LastActive field
     $stmt = $db->prepare("UPDATE Users SET LastActive = NOW() WHERE UserID = ?");
     $stmt->bind_param("i", $user['UserID']);
     $stmt->execute();
     $stmt->close();
 
-    // Retrieve or assign cart
     $stmt = $db->prepare("SELECT CartID FROM Carts WHERE UserID = ?");
     $stmt->bind_param("i", $user['UserID']);
     $stmt->execute();
@@ -44,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
 
     if (!$cartRow) {
-        // Call stored procedure to assign cart
         $stmt = $db->prepare("CALL sp_AssignCartToUser(?)");
         $stmt->bind_param("i", $user['UserID']);
         $stmt->execute();
@@ -55,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $cartID = $cartRow['CartID'];
 
-    // Set session and redirect
     $_SESSION['user'] = [
         'UserID'   => $user['UserID'],
         'Username' => $user['FirstName'],

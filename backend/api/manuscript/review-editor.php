@@ -1,8 +1,7 @@
 <?php
 require_once '../../lib/Database.php';
 
-$db = Database::getInstance()->getConnection(); // mysqli connection
-
+$db = Database::getInstance()->getConnection(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $manuscriptId = $_POST['manuscript_id'];

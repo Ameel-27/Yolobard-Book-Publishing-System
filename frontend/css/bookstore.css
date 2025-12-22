@@ -4,9 +4,9 @@ main {
   gap: 1rem;
 }
 #categories {
-  width: 20%;         /* Takes up 30% of the parent container */
-  min-width: 200px;   /* Prevent it from becoming too small */
-  max-width: 400px;   /* Optional: limit how wide it gets */
+  width: 20%;      
+  min-width: 200px;   
+  max-width: 400px;   
   box-sizing: border-box;
 }
 #categories h2 {
@@ -84,7 +84,6 @@ a.button {
   grid-column: 1 / 3;
 }
 
-/* Add these styles to the existing bookstore.css */
 .cart-link {
   position: relative;
   display: flex;

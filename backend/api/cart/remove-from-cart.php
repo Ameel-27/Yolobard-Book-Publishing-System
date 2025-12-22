@@ -15,7 +15,6 @@ if ($bookId <= 0) {
 
 $db = Database::getInstance()->getConnection();
 
-// Prepare DELETE statement
 $stmt = $db->prepare("DELETE FROM Cart_Items WHERE CartID = ? AND BookID = ?");
 if (!$stmt) {
     die("Prepare failed: " . $db->error);

@@ -15,9 +15,6 @@ if ($bookId <= 0) {
 
 $db = Database::getInstance()->getConnection();
 
-/* -------------------------------------------
-   CHECK IF ITEM IS ALREADY IN CART
--------------------------------------------- */
 $checkSql = "SELECT Quantity FROM Cart_Items WHERE CartID = ? AND BookID = ?";
 $checkStmt = $db->prepare($checkSql);
 $checkStmt->bind_param("ii", $cartId, $bookId);
@@ -26,9 +23,6 @@ $result = $checkStmt->get_result();
 $existing = $result->fetch_assoc();
 $checkStmt->close();
 
-/* -------------------------------------------
-   INSERT ONLY IF NOT ALREADY IN CART
--------------------------------------------- */
 if (!$existing) {
     $insertSql = "INSERT INTO Cart_Items (CartID, BookID) VALUES (?, ?)";
     $insertStmt = $db->prepare($insertSql);
@@ -37,7 +31,6 @@ if (!$existing) {
     $insertStmt->close();
 }
 
-// Redirect back to the originating page
 $redirectPage = isset($_POST['redirect']) 
     ? $_POST['redirect'] 
     : "/yolobard/frontend/book-details.php?id=$bookId";

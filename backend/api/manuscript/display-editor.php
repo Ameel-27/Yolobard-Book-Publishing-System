@@ -1,5 +1,4 @@
 <?php
-// Only allow access if the user is an editor
 if (!isset($_SESSION['user']) || $_SESSION['user']['Role'] !== 'editor') {
     echo "<p>Unauthorized access.</p>";
     exit;
@@ -8,7 +7,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['Role'] !== 'editor') {
 require_once '../backend/lib/Database.php';
 $db = Database::getInstance()->getConnection();
 
-// Prepare statement
 $sql = "
     SELECT m.*, CONCAT(u.FirstName, ' ', u.LastName) AS AuthorName, g.GenreName
     FROM Manuscripts m

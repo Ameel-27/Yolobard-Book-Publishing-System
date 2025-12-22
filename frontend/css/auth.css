@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 6rem 2rem; /* Add vertical padding */
+    padding: 6rem 2rem; 
     background-color: var(--color-primary);
-    min-height: 100vh; /* Full viewport height */
-    box-sizing: border-box; /* Ensure padding is included in height */
+    min-height: 100vh; 
+    box-sizing: border-box; 
   }
 
   .auth-card {
@@ -18,7 +18,7 @@
   }
   
   .auth-header {
-    padding: 3.5rem 2rem 1rem; /* Reduced top padding from 2rem to 1.5rem */
+    padding: 3.5rem 2rem 1rem;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
   }
@@ -184,7 +184,6 @@
     box-shadow: 0 0 0 3px rgba(49, 48, 77, 0.1);
   }
   
-  /* Dropdown arrow styling */
   .form-group {
     position: relative;
   }
@@ -200,7 +199,6 @@
     pointer-events: none;
   }
   
-  /* Different colors for different roles */
   .auth-card[data-role="author"] {
     border-top: 4px solid #4CAF50;
   }
@@ -216,7 +214,7 @@
   .auth-card[data-role="customer"] {
     border-top: 4px solid #FFC107;
   }
-  /* Name fields row */
+
 .name-fields {
     display: flex;
     gap: 1rem;
@@ -227,7 +225,6 @@
     flex: 1;
   }
   
-  /* Terms checkbox styling */
   .terms-checkbox {
     display: flex;
     align-items: center;
@@ -249,7 +246,6 @@
     text-decoration: underline;
   }
   
-  /* Responsive adjustments */
   @media screen and (max-width: 480px) {
     .name-fields {
       flex-direction: column;
@@ -262,7 +258,6 @@
   }
 
 
-  /* Author Submission Specific Styles */
 .file-upload {
   margin-bottom: 1.5rem;
 }

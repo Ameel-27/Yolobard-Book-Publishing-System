@@ -2,7 +2,6 @@
 session_start();
 require_once '../../lib/Database.php';
 
-// PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -20,9 +19,6 @@ $userName  = $_SESSION['user']['Username'];
 
 $db = Database::getInstance()->getConnection();
 
-/* ---------------------------
-   1. Get cart items for email
----------------------------- */
 $stmt = $db->prepare("
     SELECT 
         b.Title,
@@ -46,9 +42,6 @@ while ($row = $result->fetch_assoc()) {
 }
 $stmt->close();
 
-/* ---------------------------
-   2. Place the order
----------------------------- */
 $stmt = $db->prepare("CALL sp_PlaceOrder(?, ?)");
 $stmt->bind_param("ii", $userID, $cartID);
 
@@ -57,9 +50,6 @@ if (!$stmt->execute()) {
 }
 $stmt->close();
 
-/* ---------------------------
-   3. Build email HTML
----------------------------- */
 $emailBody = "
 <h2>Thank you for your purchase, {$userName}! 🎉</h2>
 <p>Here is a summary of your order:</p>
@@ -95,9 +85,6 @@ $emailBody .= "
 <p>— Yolo-Bard Team</p>
 ";
 
-/* ---------------------------
-   4. Send email via PHPMailer
----------------------------- */
 $mail = new PHPMailer(true);
 
 try {
@@ -118,13 +105,10 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-    // Email failure should NOT cancel order
     error_log("Email failed: {$mail->ErrorInfo}");
 }
 
-/* ---------------------------
-   5. Redirect
----------------------------- */
+
 echo "<script>
     alert('Order placed successfully! Check your email 📧');
     window.location.href = '/yolobard/frontend/shopping-cart.php';

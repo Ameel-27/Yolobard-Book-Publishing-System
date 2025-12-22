@@ -4,7 +4,6 @@ require_once '../../yolobard/backend/lib/Database.php';
 $db = Database::getInstance()->getConnection();
 $authorId = $_SESSION['user']['UserID'];
 
-// Prepare statement
 $stmt = $db->prepare("SELECT m.ManuscriptID, m.Title, g.GenreName, m.SubmittedAt, m.Status
                       FROM Manuscripts m
                       JOIN Genres g ON m.GenreID = g.GenreID

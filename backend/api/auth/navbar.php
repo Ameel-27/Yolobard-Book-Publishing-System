@@ -1,6 +1,5 @@
 <?php
-require_once '../backend/lib/UserFactory.php';  // <- Matches URL root
-
+require_once '../backend/lib/UserFactory.php'; 
 $role = $_SESSION['user']['Role'] ?? null;
 $userId = $_SESSION['user']['UserID'] ?? null;
 

@@ -1,7 +1,4 @@
 <?php
-// ---------------------------------------------
-// TOTAL BOOKS
-// ---------------------------------------------
 $totalBooks = 0;
 $totalBooksSql = "SELECT COUNT(*) AS TotalBooks FROM Books";
 $result = $db->query($totalBooksSql);

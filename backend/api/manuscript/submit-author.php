@@ -1,5 +1,4 @@
 <?php
-// /backend/api/manuscript/submit.php
 session_start();
 require_once '../../lib/Database.php';
 
@@ -18,7 +17,6 @@ if (!$title || !$description || !$price || !$genreName || !isset($_FILES['cover'
     die("All fields are required");
 }
 
-// Sanitize title for file names
 $sanitizedTitle = strtolower(trim($title));
 $sanitizedTitle = preg_replace('/[^a-z0-9\-]+/', '', $sanitizedTitle);
 $sanitizedTitle = str_replace(' ', '-', $sanitizedTitle);
@@ -27,7 +25,6 @@ $sanitizedTitle = trim($sanitizedTitle, '-');
 $coverUploadDir = $root . '/yolobard/uploads/covers/';
 $fileUploadDir = $root . '/yolobard/uploads/manuscripts/';
 
-// URL paths for database/browser
 $coverBaseUrl = '/yolobard/uploads/covers/';
 $fileBaseUrl = '/yolobard/uploads/manuscripts/';
 
@@ -50,7 +47,6 @@ $fileBaseUrl .= $manuscriptName;
 
 $db = Database::getInstance()->getConnection();
 
-// Retrieve GenreID from Database
 $sql = "SELECT GenreID FROM Genres WHERE GenreName = ?";
 $stmt = $db->prepare($sql);
 if (!$stmt) die("Prepare failed: " . $db->error);
@@ -65,7 +61,6 @@ if (!$genre) {
 }
 $genreId = $genre['GenreID'];
 
-// Call stored procedure
 $sql = "CALL sp_SubmitManuscript(?, ?, ?, ?, ?, ?, ?)";
 $stmt = $db->prepare($sql);
 if (!$stmt) die("Prepare failed: " . $db->error);

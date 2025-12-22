@@ -11,7 +11,6 @@ $cartId = (int) $_SESSION['user']['CartID'];
 
 $db = Database::getInstance()->getConnection();
 
-// Decrease quantity by 1
 $stmt = $db->prepare("UPDATE Cart_Items SET Quantity = Quantity - 1 WHERE CartID = ? AND BookID = ?");
 if (!$stmt) {
     die("Prepare failed: " . $db->error);
