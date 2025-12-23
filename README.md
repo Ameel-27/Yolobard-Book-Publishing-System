@@ -1,7 +1,7 @@
 # Yolobard---Book-Publishing-System
 A system to modernizing the traditional book publishing experience all the way from uploading the manuscripts to making the book live.
 
-#Installation:
+# Installation:
 1. Install xampp version 8.2.12: https://www.apachefriends.org/download.html
 2. Download everything from the repository
 3.. Put the `yolobard` folder inside C:\xampp\htdocs\
